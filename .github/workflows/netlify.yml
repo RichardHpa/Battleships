@@ -11,13 +11,13 @@ concurrency:
 jobs:
   # Build job
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
 
   # Deployment job
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     needs: build
     steps:
       - uses: actions/checkout@v2
