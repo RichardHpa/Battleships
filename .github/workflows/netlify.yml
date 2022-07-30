@@ -3,13 +3,28 @@ on:
   push:
     branches: ['dev']
 
-jobs:
-  build:
-    runs-on: ubuntu-18.04
-    steps:
-      - uses: actions/checkout@v2
+# Allow one concurrent deployment
+concurrency:
+  group: 'staging'
+  cancel-in-progress: true
 
-      - name: Deploy to Netlify
+jobs:
+  # Build job
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+        uses: actions/checkout@v3
+
+  # Deployment job
+  deploy:
+    environment:
+      name: Staging
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: 🚀 Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.2.3
         with:
           publish-dir: './'
@@ -19,3 +34,6 @@ jobs:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         timeout-minutes: 1
+
+
+
