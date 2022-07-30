@@ -12,12 +12,13 @@ jobs:
   build:
     environment:
       name: staging
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.staging-deployment.outputs.deploy-url }}
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
 
       - name: Deploy to Netlify
+        id: staging-deployment
         uses: nwtgck/actions-netlify@v1.2.3
         with:
           publish-dir: './'
