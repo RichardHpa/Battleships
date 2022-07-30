@@ -9,16 +9,9 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # Build job
-  build:
+  # Build and Deployment job
+  build and deploy:
     runs-on: ubuntu-18.04
-    steps:
-      - uses: actions/checkout@v2
-
-  # Deployment job
-  deploy:
-    runs-on: ubuntu-18.04
-    needs: build
     steps:
       - uses: actions/checkout@v2
       - name: 🚀 Deploy to Netlify
