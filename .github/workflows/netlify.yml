@@ -3,8 +3,16 @@ on:
   push:
     branches: ['dev']
 
+# Allow one concurrent deployment
+concurrency:
+  group: 'staging'
+  cancel-in-progress: true
+
 jobs:
   build:
+    environment:
+      name: staging
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
