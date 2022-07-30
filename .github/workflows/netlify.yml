@@ -13,8 +13,7 @@ jobs:
         uses: nwtgck/actions-netlify@v1.2.3
         with:
           publish-dir: './'
-          production-branch: dev
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-deployment-environment: staging
           deploy-message: 'Deploy from GitHub Actions'
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
