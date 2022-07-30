@@ -9,19 +9,18 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # Build and Deployment job
-  build and deploy:
+  build:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
-      - name: 🚀 Deploy to Netlify
-        id: deployment
+
+      - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v1.2.3
         with:
           publish-dir: './'
-          github-deployment-environment: Staging
+          github-deployment-environment: staging
           deploy-message: 'Deploy from GitHub Actions'
-         env:
+        env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-        timeout-minutes: 1       
+        timeout-minutes: 1
