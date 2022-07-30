@@ -10,6 +10,9 @@ concurrency:
 
 jobs:
   build:
+    environment:
+      name: staging
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
