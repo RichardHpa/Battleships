@@ -18,5 +18,4 @@ jobs:
       - name: File exists
         if: steps.check_files.outputs.files_exists == 'true'
         # Only runs if files exists
-        run: echo Found env.js file in pull requests
         run: exit 1
