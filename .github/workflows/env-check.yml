@@ -1,9 +1,6 @@
 name: '🔎 Check Files'
 
-on:
-  pull_request:
-  push:
-    branches: main
+on: pull_request
 
 jobs:
   dev-file-check:
