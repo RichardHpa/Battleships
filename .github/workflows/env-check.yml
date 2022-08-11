@@ -1,0 +1,25 @@
+name: '🔎 Check Files'
+
+on:
+  pull_request:
+  push:
+    branches: main
+
+jobs:
+  dev-file-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v1
+
+      - name: Check file existence
+        id: check_files
+        uses: andstor/file-existence-action@v1
+        with:
+          files: 'js/env.js'
+
+      - name: File exists
+        if: steps.check_files.outputs.files_exists == 'true'
+        # Only runs if files exists
+        run: echo Found env.js file in pull requests
+        run: exit 1
