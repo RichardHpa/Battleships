@@ -30,7 +30,7 @@ jobs:
         with:
           ref: ${{ github.ref }}
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          check-name: Jest
+          check-name: jest
           wait-interval: 20
 
       - name: Checkout
