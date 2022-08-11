@@ -1,0 +1,14 @@
+# Workflow for Jest Suite
+name: 🃏 Jest
+
+on: push
+
+jobs:
+  jest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install modules
+        run: npm install
+      - name: Run tests
+        run: npm run test:ci
