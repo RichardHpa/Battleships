@@ -1,0 +1,23 @@
+{
+  "name": "battleships",
+  "version": "1.0.0",
+  "description": "A ongoing project of building a game of battleships",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:ci": "CI=true npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RichardHpa/Battleships.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RichardHpa/Battleships/issues"
+  },
+  "homepage": "https://github.com/RichardHpa/Battleships#readme",
+  "dependencies": {
+    "jest": "^28.1.3"
+  }
+}
