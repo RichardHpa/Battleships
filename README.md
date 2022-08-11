@@ -1,5 +1,9 @@
 # Battleships
 
+A ongoing project of building a game of battleships by [Richard Hpa](https://github.com/RichardHpa) and [Ash Rockett](https://github.com/MrAshRockett)
+
+## Rules of Battleships
+
 Each player receives a game board and five ships of varying lengths. Each ship has holes where the "hit" pegs are inserted and a supply of hit and miss markers (white and red pegs). The five ships are:
 
 Carrier, which has five holes
